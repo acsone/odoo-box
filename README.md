@@ -9,24 +9,24 @@ OCA modules available
 * a documentation on how to easily merge specific 
 pull requests in the installed instance
 
-It work on all major operating systems.
+It works on all major operating systems.
 
 From a technical standpoint, it is a Vagrant set-up that installs
 a predefined buildout configuration. The user can easily
 adapt the buildout to merge pull requests.
 
-## Software Requirements
-
-* Vagrant from https://www.vagrantup.com/downloads.html for your Operating system
-* Oracle VM VirtualBox from https://www.virtualbox.org/wiki/Downloads for your Operating system
-* If your operating system is a Microsoft distribution, you should install CMDER (Portable console emulator) from http://bliker.github.io/cmder/
-	 
 ## System Requirements
 
 * Operating system supported by Vagrant and Oracle VM VirtualBox
 * 64-bit (x64) processor
 * Network connection 
 * Unused 8069 and 8169 ports
+	 
+## Software Requirements
+
+* Vagrant from https://www.vagrantup.com/downloads.html for your Operating system
+* Oracle VM VirtualBox from https://www.virtualbox.org/wiki/Downloads for your Operating system
+* If your operating system is a Microsoft distribution, you should install CMDER (Portable console emulator) from http://bliker.github.io/cmder/
 	 
 ## First Installation
 
