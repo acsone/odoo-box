@@ -15,6 +15,12 @@ sudo apt-get install -y libldap2-dev libsasl2-dev libssl-dev
 sudo apt-get install python-virtualenv
 sudo -u postgres createuser vagrant --superuser
 
+cd /usr/local/bin
+sudo wget http://sourceforge.net/projects/wkhtmltopdf/files/0.12.1/wkhtmltox-0.12.1_linux-precise-amd64.deb
+sudo dpkg -i wkhtmltox-0.12.1_linux-precise-amd64.deb
+cd /usr/bin
+sudo ln -s ../local/bin/wkhtmltopdf wkhtmltopdf
+
 echo "DONE!"
 echo "Ready to install Odoo !"
 
@@ -56,12 +62,12 @@ then
 	exit 1
 fi
 
-if [ ! -f /etc/init/odoo-server-70.conf ] 
+if [ -f /etc/init/odoo-server-70.conf ] 
 then 
    sudo rm /etc/init/odoo-server-70.conf
 fi
 
-if [ ! -L /etc/init.d/odoo-server-70 ] 
+if [ -L /etc/init.d/odoo-server-70 ] 
 then 
    sudo rm /etc/init.d/odoo-server-70
 fi
@@ -75,12 +81,12 @@ echo "exec /home/vagrant/odoo/instance-70/bin/start_openerp --proxy-mode" | sudo
 sudo ln -s /lib/init/upstart-job /etc/init.d/odoo-server-70
 sudo service odoo-server-70 restart
 
-if [ ! -f /etc/init/odoo-server-80.conf ] 
+if [ -f /etc/init/odoo-server-80.conf ] 
 then 
    sudo rm /etc/init/odoo-server-80.conf
 fi
 
-if [ ! -L /etc/init.d/odoo-server-80 ] 
+if [ -L /etc/init.d/odoo-server-80 ] 
 then 
    sudo rm /etc/init.d/odoo-server-80
 fi
