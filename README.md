@@ -1,38 +1,73 @@
-Acsone Odoo Box
-=======================
+# Acsone Test Box for Odoo
 
-Vagrant Set-up using buildout for Odoo.
+The goal of this project is to help functional consultants 
+test Pull Requests to OCA modules.
 
-Software Requirements
----------------------
+It provides:
+* a mechanism to install an Odoo instance with all
+OCA modules available
+* a documentation on how to easily merge specific 
+pull requests in the installed instance
 
-     * Download and install Vagrant from https://www.vagrantup.com/downloads.html for your Operating system
-	 * Download and install Oracle VM VirtualBox from https://www.virtualbox.org/wiki/Downloads for your Operating system
-	 * If your operating system is a Microsoft distribution, you should install CMDER (Portable console emulator) from http://bliker.github.io/cmder/
+It work on all major operating systems.
+
+From a technical standpoint, it is a Vagrant set-up that installs
+a predefined buildout configuration. The user can easily
+adapt the buildout to merge pull requests.
+
+## Software Requirements
+
+* Vagrant from https://www.vagrantup.com/downloads.html for your Operating system
+* Oracle VM VirtualBox from https://www.virtualbox.org/wiki/Downloads for your Operating system
+* If your operating system is a Microsoft distribution, you should install CMDER (Portable console emulator) from http://bliker.github.io/cmder/
 	 
-System Requirements
--------------------
-	 * Operating system supported by Vagrant and Oracle VM VirtualBox
-	 * 64-bit (x64) processor
-	 * Network connection 
-	 * Unused 8069 and 8169 ports
+## System Requirements
+
+* Operating system supported by Vagrant and Oracle VM VirtualBox
+* 64-bit (x64) processor
+* Network connection 
+* Unused 8069 and 8169 ports
 	 
-Acsone Odoo box Installation steps
-------------------
+## First Installation
 
-	* Download VagrantFile from this repository or all file but first is enough and place them on a new directory
-	* Open your terminal or CMDER.exe (Accept all warnings)
-	* Navigate to created directory with cd command (see http://ss64.com/bash/cd.html and http://ss64.com/bash/pwd.html)
-	* Type command 'vagrant up' and press ENTER
-	* Wait about 15 minutes (depending of your network connection) during creation of odoo 7.0 and 8.0 instances
+* Download VagrantFile from this repository or all file but first is enough and place them on a new directory
+* On Windows, open your terminal or CMDER.exe (Accept all warnings)
+* Navigate to created directory with cd command (see http://ss64.com/bash/cd.html and http://ss64.com/bash/pwd.html)
+* Type command 'vagrant up' and press ENTER
+* Wait about 15 minutes (depending of your network connection) during creation of odoo 7.0 and 8.0 instances
 
-Resolve installation errors
---------------
-
-    * if it happens any problem during 'vagrant up' execution like 'timeout' or 'Instance ... creation error. Please restart them',
-	  Please type command 'vagrant reload --provision' and press ENTER
-	* if the problem persists, please create an issue
+If a fatal error occurs during 'vagrant up' execution 
+such as 'timeout' or 'Instance ... creation error. Please restart them', 
+type the command 'vagrant reload --provision' and press ENTER
+If the problem persists, please create an issue here on github.
 	
+At this stage you have a running Acsone Test Box for Odoo.
+	
+## How do I?
+
+### Access the installed instances
+
+TODO
+
+### Stop and start the test box
+
+TODO
+
+### Install a Pull Request to Odoo or OCA in order to test it
+
+TODO
+
+### Remove all Pull Request I have installed
+
+TODO
+
+### Reset everything in case things go wrong
+
+TODO
+
+
+...
+
 Acsone Odoo box shutdown
 ------------------------
 
@@ -92,7 +127,5 @@ WARNING : This operation will overwrite buildout changes
 
 
 Copyright (c) 2014 Acsone SA/NV (http://www.acsone.eu)
--------------------------------------------------------
 All Rights Reserved
------------------------------------------------------
-	
+
