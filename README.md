@@ -53,7 +53,12 @@ TODO
 
 TODO
 
-### Install a Pull Request to Odoo or OCA in order to test it
+### Install a Pull Request to an OCA repository in order to test it
+
+If you want to test pull request #N to OCA repository R, add a line
+to the merge file:
+
+git https://github.com/OCA/*R*.git *R* pull/*N*/head
 
 TODO
 
