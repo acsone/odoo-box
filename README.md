@@ -34,100 +34,99 @@ adapt the buildout to merge pull requests.
 * On Windows, open your terminal or CMDER.exe (Accept all warnings)
 * Navigate to created directory with cd command (see http://ss64.com/bash/cd.html and http://ss64.com/bash/pwd.html)
 * Type command 'vagrant up' and press ENTER
-* Wait about 15 minutes (depending of your network connection) during creation of odoo 7.0 and 8.0 instances
+
+At this stage you have an Acsone Test Box which is ready to install Odoo.
 
 If a fatal error occurs during 'vagrant up' execution 
-such as 'timeout' or 'Instance ... creation error. Please restart them', 
 type the command 'vagrant reload --provision' and press ENTER
 If the problem persists, please create an issue here on github.
 	
-At this stage you have a running Acsone Test Box for Odoo.
-	
 ## How do I?
+
+### Install Odoo instance
+
+Currently, it's possible to install 7.0 and/or 8.0 Odoo Instance
+for instance, 8.0 instance creation :
+
+* vagrant ssh -c "./build-instance.sh 80"
+* Wait about 5 minutes (depending of your network connection) during creation of odoo 8.0 instance
+
+If a fatal error occurs during instance build execution such as 'timeout' or 'Instance ... creation error. Please restart them',
+type the command 'vagrant ssh -c "./reload-instance.sh 80"' and press ENTER.
+If the problem persists, please create an issue here on github.
+
+At this stage you have an installed Acsone Test Box for Odoo 8.0
+
+* vagrant ssh -c "./start-instance.sh 80"
+
+At this stage you have a running Acsone Test Box for Odoo 8.0
 
 ### Access the installed instances
 
-TODO
+Odoo instance is installed on localhost address on 8069 port.
+Then, you can open a web browser like Google Chrome or Mozilla Firefox and type 'localhost:8069' in the address bar.
 
-### Stop and start the test box
+### Stop and start test box
 
-TODO
+To start Acsone test box :
+
+* vagrant up
+
+To stop :
+
+* vagrant halt
+
+To restart :
+
+* vagrant reload
+
+### Stop and start instances
+
+To start Odoo instance which is build, you can type :
+
+* vagrant ssh -c "./start-instance.sh INSTANCE_VERSION" where INSTANCE_VERSION is 70 or 80 
+
+To stop Odoo instance which is build, you can type :
+
+* vagrant ssh -c "./stop-instance.sh INSTANCE_VERSION"
 
 ### Install a Pull Request to an OCA repository in order to test it
 
-If you want to test pull request #N to OCA repository R, add a line
-to the merge file:
+* vagrant ssh -c "./add-pr.sh INSTANCE_VERSION REPOSITORY_NAME PULL_REQUEST_NUMBER" 
 
-git https://github.com/OCA/*R*.git *R* pull/*N*/head
+for exemple, if you want to test : https://github.com/OCA/account-financial-tools/pull/34 on 80 instance you can type :
 
-TODO
+* vagrant ssh -c "./add-pr.sh 80 account-financial-tools 34" 
+
+WARNING : Don't forget to stop and start instance after this operation
 
 ### Remove all Pull Request I have installed
 
-TODO
+To remove all pull request is installed on an instance. You have to reload this instance :
+
+* vagrant ssh -c "./reload-instance.sh INSTANCE_VERSION"
+
+WARNING : Don't forget to stop and start instance after this operation
 
 ### Reset everything in case things go wrong
 
-TODO
+#### Soft method :
 
+* vagrant reload --provision OR vagrant up --provision (depending on test box state)
 
-...
+And reload instances :
 
-Acsone Odoo box shutdown
-------------------------
+* vagrant ssh -c "./reload-instance.sh INSTANCE_VERSION"
 
-    * Open your terminal or CMDER.exe (Accept all warnings)
-	* Navigate to odoo box directory with cd command (see http://ss64.com/bash/cd.html and http://ss64.com/bash/pwd.html)
-	* Type command 'vagrant halt' and press ENTER
-	
-Acsone Odoo box start or restart
-------------------------
+#### Hard method :
 
-    * Open your terminal or CMDER.exe (Accept all warnings)
-	* Navigate to odoo box directory with cd command (see http://ss64.com/bash/cd.html and http://ss64.com/bash/pwd.html)
-	* Type command 'vagrant up' and press ENTER
+* vagrant destroy
+* Restart at installation step 4
 
-Acsone Odoo box ssh access
-------------------------
+### Access to Acsone test box with ssh mode
 
-    * Open your terminal or CMDER.exe (Accept all warnings)
-	* Navigate to odoo box directory with cd command (see http://ss64.com/bash/cd.html and http://ss64.com/bash/pwd.html)
-	* Type command 'vagrant ssh' and press ENTER
-	* Press CTRL-D to going out of ssh mode
-	
-Acsone Odoo box destroy (Use with caution)
-------------------------
+* vagrant ssh
 
-    * Open your terminal or CMDER.exe (Accept all warnings)
-	* Navigate to odoo box directory with cd command (see http://ss64.com/bash/cd.html and http://ss64.com/bash/pwd.html)
-	* Type command 'vagrant destroy' and press ENTER
-	
-Modify instance buildout
-------------------------
-
-If you want to modify buildout to add addons repository or merge, you can modify it using ssh and nano editor.
-
-Example for instance-80 :
-
-	* Open your terminal or CMDER.exe (Accept all warnings)
-	* Navigate to odoo box directory with cd command (see http://ss64.com/bash/cd.html and http://ss64.com/bash/pwd.html)
-	* Type command 'vagrant ssh' and press ENTER
-	* Type 'cd ./odoo/instance-80/'
-	* Type 'nano buildout.cfg'. This command should open a text editor.
-	* Modify buildout with this syntax : 'git <Repository address> <local directory> <repository branch> and save file .
-	* Now, you have to run the buildout manually by tapping './bin/buildout'
-	* And restart service with command 'sudo service odoo-server-80 restart'
-
-Acsone Odoo box buildout reload
-------------------------
-
-You can reload buildout to update repositories
-
-    * Open your terminal or CMDER.exe (Accept all warnings)
-	* Navigate to odoo box directory with cd command (see http://ss64.com/bash/cd.html and http://ss64.com/bash/pwd.html)
-	* Type command 'vagrant reload --provision' and press ENTER
-
-WARNING : This operation will overwrite buildout changes
 
 
 
