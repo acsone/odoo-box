@@ -6,7 +6,13 @@ Vagrant::Config.run do |config|
     config.vm.box_url = "http://cloud-images.ubuntu.com/vagrant/precise/current/precise-server-cloudimg-amd64-vagrant-disk1.box"
 	config.vm.forward_port 8069, 8069
 	config.vm.forward_port 8169, 8169
-
+	
+	config.ssh.max_tries = 150
+	
+	config.vm.provision :shell do |shell|
+	  shell.inline = "sudo /etc/init.d/networking restart"
+	end
+	
 	config.vm.provision :shell do |shell|
 	  shell.inline = "sudo apt-get install -y git-core"
 	end
