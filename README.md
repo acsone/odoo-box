@@ -26,12 +26,12 @@ adapt the buildout to merge pull requests.
 
 * Vagrant from https://www.vagrantup.com/downloads.html for your Operating system
 * Oracle VM VirtualBox from https://www.virtualbox.org/wiki/Downloads for your Operating system
-* If your operating system is a Microsoft distribution, you should install CMDER (Portable console emulator) from http://bliker.github.io/cmder/
+* If your operating system is a Microsoft distribution, you have to install CMDER Full(Portable console emulator) from http://bliker.github.io/cmder/
 	 
 ## First Installation
 
 * Download VagrantFile from this repository or all file but first is enough and place them on a new directory
-* On Windows, open your terminal or CMDER.exe (Accept all warnings)
+* Open your terminal or CMDER.exe (Accept all warnings)
 * Navigate to created directory with cd command (see http://ss64.com/bash/cd.html and http://ss64.com/bash/pwd.html)
 * Type command 'vagrant up' and press ENTER
 
@@ -42,6 +42,10 @@ type the command 'vagrant reload --provision' and press ENTER
 If the problem persists, please create an issue here on github.
 	
 ## How do I?
+
+## Preamble
+
+All command beginning with "vagrant" must be type on your terminal or CMDER at directory which contains VagrantFile.
 
 ### Install Odoo instance
 
