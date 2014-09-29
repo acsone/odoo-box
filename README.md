@@ -30,7 +30,7 @@ adapt the buildout to merge pull requests.
 	 
 ## First Installation
 
-* Download VagrantFile from this repository or all file but first is enough and place them on a new directory
+* Download VagrantFile from this repository (above on this webpage) or all file but first is enough and place them on a new directory
 * Open your terminal or CMDER.exe (Accept all warnings)
 * Navigate to created directory with cd command (see http://ss64.com/bash/cd.html and http://ss64.com/bash/pwd.html)
 * Type command 'vagrant up' and press ENTER
