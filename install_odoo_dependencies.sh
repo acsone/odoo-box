@@ -28,4 +28,12 @@ if [ -z "$VAGRANT_ODOO_DEPENDENCIES" ]; then
         echo "VAGRANT_ODOO_DEPENDENCIES='DONE'" | sudo tee -a /etc/environment
 fi
 
+if [ -z "$VAGRANT_ODOO_PICTURE" ]; then
+	sudo apt-get install -y libjpeg-dev
+	sudo apt-get install -y libfreetype6-dev
+	sudo apt-get install -y zlib1g-dev
+	sudo apt-get install -y libpng12-dev
+	echo "VAGRANT_ODOO_PICTURE='DONE'" | sudo tee -a /etc/environment
+fi
+
 echo "Ready to use Odoo !"
