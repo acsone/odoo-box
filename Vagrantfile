@@ -34,7 +34,7 @@ Vagrant::Config.run do |config|
 	
 	config.vm.provision :shell do |shell|
 	  shell.inline = "echo $1 >> clone.sh"
-	  shell.args = %q{"if [ ! -d ./odoo ]; then sudo -u vagrant git clone https://github.com/adrienpeiffer/odoo-box.git odoo;else cd ./odoo;sudo -u vagrant git reset --hard origin/master;sudo -u vagrant git pull; cd ..;fi"}
+	  shell.args = %q{"if [ ! -d ./odoo ]; then sudo -u vagrant git clone https://github.com/acsone/odoo-box.git odoo;else cd ./odoo;sudo -u vagrant git reset --hard origin/master;sudo -u vagrant git pull; cd ..;fi"}
 	end
 	
 	config.vm.provision :shell do |shell|
