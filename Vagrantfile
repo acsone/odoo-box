@@ -3,7 +3,7 @@
 
 Vagrant::Config.run do |config|
     config.vm.box = "odoo-box"
-    config.vm.box_url = "http://cloud-images.ubuntu.com/vagrant/precise/current/precise-server-cloudimg-amd64-vagrant-disk1.box"
+    config.vm.box_url = "http://cloud-images.ubuntu.com/vagrant/precise/current/precise-server-cloudimg-i386-vagrant-disk1.box"
 	config.vm.forward_port 8069, 8069
 	config.vm.forward_port 8169, 8169
 	
